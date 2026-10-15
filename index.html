@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetailIQ — Advanced Retail Analytics & Algorithm Engine</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-network"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>RetailIQ</h2>
+                    <span>Analytics Engine v2.0</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section-title">ROLE PORTALS & MENUS</div>
+                <a href="#manager" class="nav-item active" data-tab="manager">
+                    <i class="fa-solid fa-user-tie"></i> Manager Menu (21 Functions)
+                </a>
+                <a href="#customer" class="nav-item" data-tab="customer">
+                    <i class="fa-solid fa-cart-shopping"></i> Customer Menu (14 Functions)
+                </a>
+
+                <div class="nav-section-title">APPLICATION FLOW</div>
+                <a href="#menuflow" class="nav-item" data-tab="menuflow">
+                    <i class="fa-solid fa-terminal"></i> Menu-Driven Flow (CLI)
+                </a>
+
+                <div class="nav-section-title">OVERVIEW</div>
+                <a href="#dashboard" class="nav-item" data-tab="dashboard">
+                    <i class="fa-solid fa-border-all"></i> Dashboard
+                </a>
+                <a href="#datastore" class="nav-item" data-tab="datastore">
+                    <i class="fa-solid fa-database"></i> Product & Order Catalog
+                </a>
+
+                <div class="nav-section-title">ALGORITHM SUITES</div>
+                <a href="#co1" class="nav-item" data-tab="co1">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> CO1: String Algorithms
+                </a>
+                <a href="#co2" class="nav-item" data-tab="co2">
+                    <i class="fa-solid fa-diagram-project"></i> CO2: Suffix Structures
+                </a>
+                <a href="#co3" class="nav-item" data-tab="co3">
+                    <i class="fa-solid fa-sliders"></i> CO3: Dynamic Programming
+                </a>
+                <a href="#co4" class="nav-item" data-tab="co4">
+                    <i class="fa-solid fa-network-wired"></i> CO4: Network Flows
+                </a>
+                <a href="#co5" class="nav-item" data-tab="co5">
+                    <i class="fa-solid fa-calculator"></i> CO5: NP-Hard & Approximations
+                </a>
+                <a href="#co6" class="nav-item" data-tab="co6">
+                    <i class="fa-solid fa-microchip"></i> CO6: Randomized & Parallel
+                </a>
+
+                <div class="nav-section-title">TOOLS & LAB</div>
+                <a href="#alglab" class="nav-item" data-tab="alglab">
+                    <i class="fa-solid fa-flask-vial"></i> Algorithm Lab (16 Demos)
+                </a>
+                <a href="#benchmark" class="nav-item" data-tab="benchmark">
+                    <i class="fa-solid fa-stopwatch-20"></i> Perf Benchmark Lab
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="pulse-dot"></span>
+                    <span class="status-label">Engine Active (35 Algorithms)</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-bar">
+                <div class="header-search">
+                    <i class="fa-solid fa-searchengin"></i>
+                    <input type="text" id="globalQuickSearch" placeholder="Global algorithm & catalog search... (Press '/' to focus)">
+                </div>
+
+                <div class="top-nav-pills">
+                    <button class="top-pill-btn active" data-tab="manager" onclick="switchTab('manager')">
+                        <i class="fa-solid fa-user-tie"></i> Manager Menu (21)
+                    </button>
+                    <button class="top-pill-btn" data-tab="customer" onclick="switchTab('customer')">
+                        <i class="fa-solid fa-cart-shopping"></i> Customer Menu (14)
+                    </button>
+                    <button class="top-pill-btn" data-tab="menuflow" onclick="switchTab('menuflow')">
+                        <i class="fa-solid fa-terminal"></i> CLI Flow
+                    </button>
+                    <button class="top-pill-btn" data-tab="dashboard" onclick="switchTab('dashboard')">
+                        <i class="fa-solid fa-border-all"></i> Dashboard
+                    </button>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn btn-secondary btn-sm" id="resetDataBtn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Sample Data
+                    </button>
+                    <div class="user-badge">
+                        <i class="fa-solid fa-microchip"></i> DSA Core Engine
+                    </div>
+                </div>
+            </header>
+
+            <!-- Menu-Driven Application Flow View (Live Terminal Simulator) -->
+            <section id="menuflow-view" class="view-section">
+                <div class="section-header flex-between">
+                    <div>
+                        <span class="badge badge-accent"><i class="fa-solid fa-terminal"></i> Live Interactive Application Flow</span>
+                        <h2>Menu-Driven Enterprise Terminal</h2>
+                        <p>Interactive console executing the Java menu architecture with verified DSA algorithms (CO1–CO6).</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm" onclick="menuFlowSetRole('manager')"><i class="fa-solid fa-user-tie"></i> Login as Manager</button>
+                        <button class="btn btn-secondary btn-sm" onclick="menuFlowSetRole('customer')"><i class="fa-solid fa-user"></i> Login as Customer</button>
+                        <button class="btn btn-glass btn-sm" onclick="menuFlowReset()"><i class="fa-solid fa-rotate-left"></i> Reset Menu</button>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot close"></span>
+                            <span class="dot min"></span>
+                            <span class="dot max"></span>
+                        </div>
+                        <div class="terminal-title">
+                            <i class="fa-solid fa-server"></i> RetailIQ Menu-Driven Console — <span id="termActiveMenu">MAIN MENU</span>
+                        </div>
+                        <div class="terminal-status-badge" id="termUserBadge">
+                            <i class="fa-solid fa-circle-user"></i> Guest Session
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="terminalOutput"></div>
+                    <div class="terminal-prompt-bar">
+                        <span class="prompt-symbol">&gt;</span>
+                        <input type="text" id="terminalCommandInput" class="terminal-input" placeholder="Type option number (e.g. 1, 5, 10...) and press Enter..." autofocus>
+                        <button class="btn btn-primary btn-sm" id="terminalExecBtn"><i class="fa-solid fa-play"></i> Execute</button>
+                        <button class="btn btn-secondary btn-sm" onclick="clearTerminalScreen()"><i class="fa-solid fa-eraser"></i> Clear</button>
+                    </div>
+                </div>
+
+                <!-- Quick Clickable Options Pad -->
+                <div class="glass-card">
+                    <div class="card-header flex-between mb-3">
+                        <h3><i class="fa-solid fa-list-check"></i> Available Options Pad (Click to Run)</h3>
+                        <span class="badge badge-info" id="quickOptionsCount">4 options</span>
+                    </div>
+                    <div class="menu-selector-grid" id="quickMenuGrid">
+                        <!-- Populated dynamically based on active menu -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manager Operations View (All 21 Manager Functions) -->
+            <section id="manager-view" class="view-section active">
+                <div class="role-portal-banner flex-between">
+                    <div>
+                        <span class="badge badge-accent"><i class="fa-solid fa-user-tie"></i> Chief Operations Manager Suite</span>
+                        <h2>Manager Menu — 21 Verified Operations</h2>
+                        <p>Execute and inspect each DSA algorithm-backed retail management function directly.</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-sm" onclick="runAllManagerFunctions()"><i class="fa-solid fa-bolt"></i> Execute All 21 Functions</button>
+                        <button class="btn btn-secondary btn-sm" onclick="switchTab('menuflow'); menuFlowSetRole('manager');"><i class="fa-solid fa-terminal"></i> Open in CLI Flow</button>
+                        <button class="btn btn-glass btn-sm" onclick="switchTab('benchmark')"><i class="fa-solid fa-gauge-high"></i> Benchmark Suite</button>
+                    </div>
+                </div>
+
+                <!-- Manager Functions Filter Bar -->
+                <div class="menu-filter-bar">
+                    <div style="flex: 1; min-width: 250px; position: relative;">
+                        <i class="fa-solid fa-filter" style="position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.8rem;"></i>
+                        <input type="text" id="managerFuncFilterInput" class="form-control" style="padding-left: 2.2rem;" placeholder="Filter 21 manager functions (e.g. addProduct, Dinic, Knapsack, TSP)..." oninput="filterManagerFunctions(this.value)">
+                    </div>
+                    <div class="filter-pills-group" id="managerModuleFilters">
+                        <button class="filter-pill active" onclick="filterManagerByModule('all', this)">All (21)</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('Standard Data Op', this)">Standard Ops</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO1', this)">CO1 Strings</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO2', this)">CO2 Suffix</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO3', this)">CO3 DP</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO4', this)">CO4 Flows</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO5', this)">CO5 NP-Hard</button>
+                        <button class="filter-pill" onclick="filterManagerByModule('CO6', this)">CO6 Parallel</button>
+                    </div>
+                </div>
+
+                <div class="func-grid">
+                    <!-- Option 1: addProduct() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">1. Add Product</h3>
+                                <span class="func-sig">Function: addProduct()</span>
+                            </div>
+                            <span class="badge badge-info">Standard Data Op</span>
+                        </div>
+                        <div class="func-body">Inserts a new SKU into the in-memory catalog with pricing, category, and inventory stock.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunAddProduct()"><i class="fa-solid fa-plus"></i> Open Add Product Modal</button>
+                        </div>
+                        <div id="m_res_1" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 2: updateProduct() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">2. Update Product</h3>
+                                <span class="func-sig">Function: updateProduct()</span>
+                            </div>
+                            <span class="badge badge-info">Standard Data Op</span>
+                        </div>
+                        <div class="func-body">Updates stock and pricing for an existing catalog item in O(1) in-place access.</div>
+                        <div class="func-controls">
+                            <select id="m_update_id" class="form-control" onchange="managerSyncUpdateInputs()"></select>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" id="m_update_price" class="form-control" placeholder="New Price (₹)" step="10">
+                                <input type="number" id="m_update_stock" class="form-control" placeholder="New Stock" step="1">
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="managerRunUpdateProduct()"><i class="fa-solid fa-pen-to-square"></i> Save Product Update</button>
+                        </div>
+                        <div id="m_res_2" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 3: deleteProduct() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">3. Delete Product</h3>
+                                <span class="func-sig">Function: deleteProduct()</span>
+                            </div>
+                            <span class="badge badge-info">Standard Data Op</span>
+                        </div>
+                        <div class="func-body">Removes a discontinued product from active inventory tables.</div>
+                        <div class="func-controls">
+                            <select id="m_delete_id" class="form-control"></select>
+                            <button class="btn btn-secondary btn-sm" onclick="managerRunDeleteProduct()"><i class="fa-solid fa-trash"></i> Delete Selected Product</button>
+                        </div>
+                        <div id="m_res_3" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 4: displayProducts() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">4. View Products</h3>
+                                <span class="func-sig">Function: displayProducts()</span>
+                            </div>
+                            <span class="badge badge-info">Data Traversal</span>
+                        </div>
+                        <div class="func-body">Sequential O(N) traversal of all 10 catalog items with stock counts and prices.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunDisplayProducts()"><i class="fa-solid fa-list"></i> Display Full Catalog</button>
+                        </div>
+                        <div id="m_res_4" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 5: searchProducts() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">5. Search Products</h3>
+                                <span class="func-sig">Function: searchProducts()</span>
+                            </div>
+                            <span class="badge tag-co1">CO1: KMP / Rabin-Karp</span>
+                        </div>
+                        <div class="func-body">Scans catalog descriptions for target pattern in O(N + M) deterministic time.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="text" id="m_input_5" class="form-control" value="Wireless" placeholder="Search pattern...">
+                                <select id="m_algo_5" class="form-control" style="max-width: 140px;">
+                                    <option value="kmp">KMP</option>
+                                    <option value="rabin">Rabin-Karp</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="managerRunSearchProducts()"><i class="fa-solid fa-magnifying-glass"></i> Search Products</button>
+                        </div>
+                        <div id="m_res_5" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 6: analyzeReviewKeywords() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">6. Analyze Review Keywords</h3>
+                                <span class="func-sig">Function: analyzeReviewKeywords()</span>
+                            </div>
+                            <span class="badge tag-co1">CO1: Aho-Corasick</span>
+                        </div>
+                        <div class="func-body">Multi-pattern automaton scanning sentiment keywords across all reviews in O(N + M + K).</div>
+                        <div class="func-controls">
+                            <input type="text" id="m_input_6" class="form-control" value="battery, noise, sound, comfortable, quality" placeholder="Comma-separated keywords...">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunAhoCorasick()"><i class="fa-solid fa-play"></i> Scan Aho-Corasick Automaton</button>
+                        </div>
+                        <div id="m_res_6" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 7: analyzeProductSimilarity() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">7. Analyze Product Similarity</h3>
+                                <span class="func-sig">Function: analyzeProductSimilarity()</span>
+                            </div>
+                            <span class="badge tag-co2">CO2: Suffix Array + LCP</span>
+                        </div>
+                        <div class="func-body">Computes Longest Common Substring & Jaccard index between SKU descriptions in O(N log N).</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select id="m_sim_prod_1" class="form-control"></select>
+                                <select id="m_sim_prod_2" class="form-control"></select>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="managerRunProductSimilarity()"><i class="fa-solid fa-code-compare"></i> Compare Selected SKUs</button>
+                        </div>
+                        <div id="m_res_7" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 8: detectRepeatedPhrases() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">8. Detect Repeated Phrases</h3>
+                                <span class="func-sig">Function: detectRepeatedPhrases()</span>
+                            </div>
+                            <span class="badge tag-co2">CO2: Suffix Tree</span>
+                        </div>
+                        <div class="func-body">Identifies repeated feedback phrases (length &ge; 8) across customer reviews in linear O(N) time.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span style="font-size: 0.78rem; color: var(--text-muted); white-space: nowrap;">Min Length:</span>
+                                <input type="number" id="m_input_8" class="form-control" value="8" min="3" max="25" style="max-width: 80px;">
+                                <button class="btn btn-primary btn-sm" onclick="managerRunRepeatedPhrases()"><i class="fa-solid fa-play"></i> Detect Phrases</button>
+                            </div>
+                        </div>
+                        <div id="m_res_8" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 9: generateSearchSuggestions() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">9. View Search Suggestions</h3>
+                                <span class="func-sig">Function: generateSearchSuggestions()</span>
+                            </div>
+                            <span class="badge tag-co3">CO3: Levenshtein Distance</span>
+                        </div>
+                        <div class="func-body">Autocorrects misspelled product queries using edit distance dynamic programming.</div>
+                        <div class="func-controls">
+                            <div class="input-group">
+                                <input type="text" id="m_input_9" class="form-control" value="headfon" placeholder="Enter typo...">
+                                <button class="btn btn-primary btn-sm" onclick="managerRunSearchSuggestions()"><i class="fa-solid fa-spell-check"></i> Correct</button>
+                            </div>
+                        </div>
+                        <div id="m_res_9" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 10: optimizeInventoryDistribution() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">10. Optimize Inventory Flow</h3>
+                                <span class="func-sig">Function: optimizeInventoryDistribution()</span>
+                            </div>
+                            <span class="badge tag-co4">CO4: Dinic Max Flow</span>
+                        </div>
+                        <div class="func-body">Level graph BFS + blocking flow DFS maximizing unit throughput from Central Depot to Fulfillment Center.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunOptimizeInventory()"><i class="fa-solid fa-water"></i> Compute Dinic Flow (490 Units)</button>
+                        </div>
+                        <div id="m_res_10" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 11: identifySupplyBottlenecks() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">11. Identify Supply Bottlenecks</h3>
+                                <span class="func-sig">Function: identifySupplyBottlenecks()</span>
+                            </div>
+                            <span class="badge tag-co4">CO4: Max-Flow Min-Cut</span>
+                        </div>
+                        <div class="func-body">Extracts critical saturated shipping lanes separating source partition S from sink partition T.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunIdentifyBottlenecks()"><i class="fa-solid fa-scissors"></i> Isolate Critical Chokepoints</button>
+                        </div>
+                        <div id="m_res_11" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 12: assignOrders() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">12. Assign Orders to Resources</h3>
+                                <span class="func-sig">Function: assignOrders()</span>
+                            </div>
+                            <span class="badge tag-co4">CO4: Bipartite Matching</span>
+                        </div>
+                        <div class="func-body">Matches 5 pending orders to specialized delivery vehicles via augmenting paths.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunAssignOrders()"><i class="fa-solid fa-arrows-split-up-and-left"></i> Run Kuhn's Matching</button>
+                        </div>
+                        <div id="m_res_12" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 13: optimizePromotions() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">13. Optimize Promotions</h3>
+                                <span class="func-sig">Function: optimizePromotions()</span>
+                            </div>
+                            <span class="badge tag-co5">CO5: 0/1 Knapsack DP</span>
+                        </div>
+                        <div class="func-body">Selects marketing packages maximizing customer lift under campaign budget.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" id="m_input_13" class="form-control" value="30000" step="5000" placeholder="Budget (₹)">
+                                <button class="btn btn-primary btn-sm" onclick="managerRunOptimizePromotions()"><i class="fa-solid fa-sack-dollar"></i> Optimize Promotions</button>
+                            </div>
+                        </div>
+                        <div id="m_res_13" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 14: analyzePromotionConflicts() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">14. Analyze Promotion Conflicts</h3>
+                                <span class="func-sig">Function: analyzePromotionConflicts()</span>
+                            </div>
+                            <span class="badge tag-co5">CO5: MIS & Vertex Cover</span>
+                        </div>
+                        <div class="func-body">Identifies maximum non-overlapping promotion bundle and minimum campaigns to retire.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunConflictAnalysis()"><i class="fa-solid fa-shield-halved"></i> Solve MIS / MVC Reductions</button>
+                        </div>
+                        <div id="m_res_14" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 15: planDeliveryRoutes() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">15. Plan Delivery Routes</h3>
+                                <span class="func-sig">Function: planDeliveryRoutes()</span>
+                            </div>
+                            <span class="badge tag-co5">CO3/CO5: TSP Bitmask DP</span>
+                        </div>
+                        <div class="func-body">Compares exact Held-Karp O(N^2 2^N) tour vs greedy Nearest Neighbor 2-Approximation for 6 hubs.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunDeliveryTSP()"><i class="fa-solid fa-route"></i> Calculate Optimal TSP Route</button>
+                        </div>
+                        <div id="m_res_15" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 16: analyzeSales() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">16. Analyze Sales</h3>
+                                <span class="func-sig">Function: analyzeSales()</span>
+                            </div>
+                            <span class="badge tag-co6">CO6: Parallel Reduce</span>
+                        </div>
+                        <div class="func-body">Divide-and-conquer parallel tree reduction aggregating revenue, units, and basket size across 40 records.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="managerRunAnalyzeSales()"><i class="fa-solid fa-chart-line"></i> Run Parallel Reduce</button>
+                        </div>
+                        <div id="m_res_16" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 17: sortSalesRecords() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">17. Sort Sales Records</h3>
+                                <span class="func-sig">Function: sortSalesRecords()</span>
+                            </div>
+                            <span class="badge tag-co6">CO6: Randomized QuickSort</span>
+                        </div>
+                        <div class="func-body">Randomized pivot selection sorting 40 transactions in expected O(N log N) without worst-case quadratic traps.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <select id="m_sort_field" class="form-control">
+                                    <option value="amount">By Amount</option>
+                                    <option value="quantity">By Quantity</option>
+                                    <option value="id">By Transaction ID</option>
+                                </select>
+                                <select id="m_sort_algo" class="form-control">
+                                    <option value="quicksort">Randomized QuickSort</option>
+                                    <option value="mergesort">Parallel MergeSort</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="managerRunSortSales()"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort Sales Records</button>
+                        </div>
+                        <div id="m_res_17" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 18: sampleCustomerReviews() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">18. Sample Customer Reviews</h3>
+                                <span class="func-sig">Function: sampleCustomerReviews()</span>
+                            </div>
+                            <span class="badge tag-co6">CO6: Reservoir Sampling</span>
+                        </div>
+                        <div class="func-body">Algorithm R uniformly selects k reviews in a single streaming pass in O(N) time and O(k) memory.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" id="m_input_18" class="form-control" value="3" min="1" max="10" placeholder="Sample size k">
+                                <button class="btn btn-primary btn-sm" onclick="managerRunSampleReviews()"><i class="fa-solid fa-dice"></i> Sample Reviews</button>
+                            </div>
+                        </div>
+                        <div id="m_res_18" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 19: compareAlgorithms() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">19. Compare Algorithm Performance</h3>
+                                <span class="func-sig">Function: compareAlgorithms()</span>
+                            </div>
+                            <span class="badge badge-accent">CO1–CO6 Benchmark</span>
+                        </div>
+                        <div class="func-body">Executes performance benchmarks across all 25+ hand-built DSA algorithms.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="switchTab('benchmark'); runFullBenchmark();"><i class="fa-solid fa-stopwatch-20"></i> Launch Benchmark Suite</button>
+                        </div>
+                        <div id="m_res_19" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 20: showAlgorithmLabMenu() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">20. Algorithm Lab</h3>
+                                <span class="func-sig">Function: showAlgorithmLabMenu()</span>
+                            </div>
+                            <span class="badge badge-accent">16 Educational Demos</span>
+                        </div>
+                        <div class="func-body">Opens educational demonstrations: Needleman-Wunsch, OBST, Tree DP, SOS DP, Miller-Rabin, and Brent's Law.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="switchTab('alglab')"><i class="fa-solid fa-flask-vial"></i> Open 16 Demos Lab</button>
+                        </div>
+                        <div id="m_res_20" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 21: logout() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">21. Logout</h3>
+                                <span class="func-sig">Function: logout()</span>
+                            </div>
+                            <span class="badge badge-secondary">Session Auth</span>
+                        </div>
+                        <div class="func-body">Terminates active Manager session and returns to Main Menu.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-secondary btn-sm" onclick="menuFlowReset(); switchTab('menuflow');"><i class="fa-solid fa-arrow-right-from-bracket"></i> End Session</button>
+                        </div>
+                        <div id="m_res_21" class="func-result-box"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Storefront View (All 14 Customer Functions) -->
+            <section id="customer-view" class="view-section">
+                <div class="role-portal-banner flex-between">
+                    <div>
+                        <span class="badge badge-accent"><i class="fa-solid fa-cart-shopping"></i> Customer Shopping Experience</span>
+                        <h2>Customer Menu — 14 Verified Operations</h2>
+                        <p>Browse products, perform algorithmic pattern search, optimize shopping budgets, and place orders.</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-sm" onclick="runAllCustomerFunctions()"><i class="fa-solid fa-bolt"></i> Execute All 14 Functions</button>
+                        <button class="btn btn-secondary btn-sm" onclick="switchTab('menuflow'); menuFlowSetRole('customer');"><i class="fa-solid fa-terminal"></i> Open in CLI Flow</button>
+                        <button class="btn btn-glass btn-sm" onclick="customerReloadWallet()"><i class="fa-solid fa-wallet"></i> Top-up Wallet (+₹5,000)</button>
+                    </div>
+                </div>
+
+                <!-- Customer Functions Filter Bar -->
+                <div class="menu-filter-bar">
+                    <div style="flex: 1; min-width: 250px; position: relative;">
+                        <i class="fa-solid fa-filter" style="position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.8rem;"></i>
+                        <input type="text" id="customerFuncFilterInput" class="form-control" style="padding-left: 2.2rem;" placeholder="Filter 14 customer functions (e.g. KMP, Aho-Corasick, Budget, Order)..." oninput="filterCustomerFunctions(this.value)">
+                    </div>
+                    <div class="filter-pills-group" id="customerCategoryFilters">
+                        <button class="filter-pill active" onclick="filterCustomerByCategory('all', this)">All (14)</button>
+                        <button class="filter-pill" onclick="filterCustomerByCategory('search', this)">Search & Suggestions</button>
+                        <button class="filter-pill" onclick="filterCustomerByCategory('compare', this)">Catalog & Similarity</button>
+                        <button class="filter-pill" onclick="filterCustomerByCategory('orders', this)">Budget, Orders & Wallet</button>
+                    </div>
+                </div>
+
+                <!-- Customer Wallet & Profile Bar -->
+                <div class="customer-wallet-strip">
+                    <div class="wallet-balance-box">
+                        <i class="fa-solid fa-circle-user fa-2x wallet-icon-user"></i>
+                        <div>
+                            <strong class="wallet-profile-name" id="custProfileName">Rahul Sharma</strong>
+                            <span class="wallet-profile-tag">Verified Customer #501</span>
+                        </div>
+                    </div>
+                    <div class="wallet-balance-box">
+                        <i class="fa-solid fa-wallet fa-2x wallet-icon-balance"></i>
+                        <div>
+                            <span class="wallet-label">AVAILABLE WALLET BALANCE</span>
+                            <span class="wallet-val" id="custWalletVal">₹15,000.00</span>
+                        </div>
+                    </div>
+                    <div class="wallet-balance-box">
+                        <i class="fa-solid fa-box-open fa-2x wallet-icon-orders"></i>
+                        <div>
+                            <span class="wallet-label">ACTIVE ORDERS</span>
+                            <strong class="wallet-order-count" id="custOrderCount">2 Orders Delivered</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="func-grid">
+                    <!-- Option 1: browseProducts() -->
+                    <div class="func-card" style="grid-column: 1 / -1;">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">1. Browse Products</h3>
+                                <span class="func-sig">Function: browseProducts()</span>
+                            </div>
+                            <span class="badge badge-info">Catalog Traversal</span>
+                        </div>
+                        <div class="func-body">Direct catalog browsing with real-time stock levels, pricing, and 1-click ordering.</div>
+                        <div class="catalog-browse-grid" id="custBrowseGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Option 2: searchWithKMP() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">2. Search Products</h3>
+                                <span class="func-sig">Function: searchWithKMP()</span>
+                            </div>
+                            <span class="badge tag-co1">CO1: KMP</span>
+                        </div>
+                        <div class="func-body">Knuth-Morris-Pratt substring search avoiding redundant character comparisons via LPS table.</div>
+                        <div class="func-controls">
+                            <div class="input-group">
+                                <input type="text" id="c_input_2" class="form-control" value="Gaming" placeholder="Search keyword...">
+                                <button class="btn btn-primary btn-sm" onclick="customerRunKMP()"><i class="fa-solid fa-magnifying-glass"></i> KMP Search</button>
+                            </div>
+                        </div>
+                        <div id="c_res_2" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 3: searchMultipleKeywords() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">3. Search Multiple Keywords</h3>
+                                <span class="func-sig">Function: searchMultipleKeywords()</span>
+                            </div>
+                            <span class="badge tag-co1">CO1: Aho-Corasick</span>
+                        </div>
+                        <div class="func-body">Searches multiple keywords (headphones, keyboard, mouse, watch) simultaneously in one pass.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="customerRunAhoCorasick()"><i class="fa-solid fa-play"></i> Scan Multi-Keyword Trie</button>
+                        </div>
+                        <div id="c_res_3" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 4: searchWithRabinKarp() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">4. Search Using Rolling Hash</h3>
+                                <span class="func-sig">Function: searchWithRabinKarp()</span>
+                            </div>
+                            <span class="badge tag-co1">CO1: Rabin-Karp</span>
+                        </div>
+                        <div class="func-body">Rabin-Karp polynomial fingerprint matching in average O(N + M) time.</div>
+                        <div class="func-controls">
+                            <div class="input-group">
+                                <input type="text" id="c_input_4" class="form-control" value="charger" placeholder="Hash search...">
+                                <button class="btn btn-primary btn-sm" onclick="customerRunRabinKarp()"><i class="fa-solid fa-hashtag"></i> Rolling Hash</button>
+                            </div>
+                        </div>
+                        <div id="c_res_4" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 5: generateSearchSuggestions() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">5. Get Spelling Suggestions</h3>
+                                <span class="func-sig">Function: generateSearchSuggestions()</span>
+                            </div>
+                            <span class="badge tag-co3">CO3: Levenshtein Distance</span>
+                        </div>
+                        <div class="func-body">Finds closest catalog matches for misspelled search queries using dynamic programming.</div>
+                        <div class="func-controls">
+                            <div class="input-group">
+                                <input type="text" id="c_input_5" class="form-control" value="keybord" placeholder="Misspelled word...">
+                                <button class="btn btn-primary btn-sm" onclick="customerRunSuggestions()"><i class="fa-solid fa-spell-check"></i> Suggest</button>
+                            </div>
+                        </div>
+                        <div id="c_res_5" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 6: findSimilarProducts() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">6. Find Similar Products</h3>
+                                <span class="func-sig">Function: findSimilarProducts()</span>
+                            </div>
+                            <span class="badge tag-co2">CO2: Suffix Array + LCP</span>
+                        </div>
+                        <div class="func-body">Recommends related products by analyzing shared technical description sub-phrases.</div>
+                        <div class="func-controls">
+                            <select id="c_similar_id" class="form-control mb-1"></select>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunSimilarProducts()"><i class="fa-solid fa-clone"></i> Find Similar SKUs</button>
+                        </div>
+                        <div id="c_res_6" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 7: compareProductDescriptions() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">7. Compare Product Descriptions</h3>
+                                <span class="func-sig">Function: compareProductDescriptions()</span>
+                            </div>
+                            <span class="badge tag-co2">CO2: Longest Common Substring</span>
+                        </div>
+                        <div class="func-body">Extracts the longest identical phrase shared between two products.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <select id="c_cmp_desc_1" class="form-control"></select>
+                                <select id="c_cmp_desc_2" class="form-control"></select>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunCompareDescriptions()"><i class="fa-solid fa-code-compare"></i> Compare Descriptions</button>
+                        </div>
+                        <div id="c_res_7" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 8: recommendProductsWithinBudget() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">8. Shop Within Budget</h3>
+                                <span class="func-sig">Function: recommendProductsWithinBudget()</span>
+                            </div>
+                            <span class="badge tag-co3">CO3: Bitmask DP Budget Optimizer</span>
+                        </div>
+                        <div class="func-body">Selects the optimal subset of products that best utilizes customer wallet budget without exceeding it.</div>
+                        <div class="func-controls">
+                            <div class="form-group mb-2">
+                                <label for="c_budget_slider">Target Budget: <strong id="c_budget_disp">₹4,000</strong></label>
+                                <input type="range" id="c_budget_slider" min="1000" max="10000" step="500" value="4000" class="form-control" oninput="document.getElementById('c_budget_disp').innerText = '₹' + this.value;">
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunBudgetOptimizer()"><i class="fa-solid fa-sliders"></i> Compute Optimal Bundle</button>
+                        </div>
+                        <div id="c_res_8" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 9: compareProducts() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">9. Compare Products</h3>
+                                <span class="func-sig">Function: compareProducts()</span>
+                            </div>
+                            <span class="badge badge-info">Standard Comparison</span>
+                        </div>
+                        <div class="func-body">Side-by-side comparison of specs, category, price, and stock for two SKUs.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <select id="c_cmp_prod_1" class="form-control"></select>
+                                <select id="c_cmp_prod_2" class="form-control"></select>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunCompareProducts()"><i class="fa-solid fa-scale-balanced"></i> Compare Specs Side-by-Side</button>
+                        </div>
+                        <div id="c_res_9" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 10: viewProductDetails() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">10. View Product Details</h3>
+                                <span class="func-sig">Function: viewProductDetails()</span>
+                            </div>
+                            <span class="badge badge-info">Data Lookup</span>
+                        </div>
+                        <div class="func-body">Inspects detailed specifications and aggregated customer reviews for a SKU.</div>
+                        <div class="func-controls">
+                            <select id="c_details_id" class="form-control mb-1"></select>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunProductDetails()"><i class="fa-solid fa-circle-info"></i> View Details & Reviews</button>
+                        </div>
+                        <div id="c_res_10" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 11: placeOrder() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">11. Place Order</h3>
+                                <span class="func-sig">Function: placeOrder()</span>
+                            </div>
+                            <span class="badge badge-accent">Order Processing</span>
+                        </div>
+                        <div class="func-body">Purchases product, debits live wallet balance, and creates an order in state.</div>
+                        <div class="func-controls">
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <select id="c_buy_prod_id" class="form-control"></select>
+                                <input type="number" id="c_buy_qty" class="form-control" value="1" min="1" max="5" style="max-width: 80px;" placeholder="Qty">
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="customerRunPlaceOrder()"><i class="fa-solid fa-bag-shopping"></i> Purchase SKU</button>
+                        </div>
+                        <div id="c_res_11" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 12: submitReview() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">12. Submit Review</h3>
+                                <span class="func-sig">Function: submitReview()</span>
+                            </div>
+                            <span class="badge badge-info">Standard Data Op</span>
+                        </div>
+                        <div class="func-body">Submit customer product feedback with rating stars and review comments.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-primary btn-sm" onclick="openAddReviewModal()"><i class="fa-solid fa-star"></i> Open Review Submission Dialog</button>
+                        </div>
+                        <div id="c_res_12" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 13: viewOrderHistory() -->
+                    <div class="func-card" style="grid-column: 1 / -1;">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">13. View Order History</h3>
+                                <span class="func-sig">Function: viewOrderHistory()</span>
+                            </div>
+                            <span class="badge badge-info">Data Filtering & Traversal</span>
+                        </div>
+                        <div class="func-body">Inspect all previous confirmed purchases, invoices, and shipment status for active user.</div>
+                        <div class="func-controls mb-2">
+                            <button class="btn btn-secondary btn-sm" onclick="customerRunViewOrders()"><i class="fa-solid fa-receipt"></i> Refresh Order Records</button>
+                        </div>
+                        <div id="custOrderHistoryTable" class="table-responsive">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div id="c_res_13" class="func-result-box"></div>
+                    </div>
+
+                    <!-- Option 14: logout() -->
+                    <div class="func-card">
+                        <div class="func-header">
+                            <div>
+                                <h3 class="func-title">14. Logout</h3>
+                                <span class="func-sig">Function: logout()</span>
+                            </div>
+                            <span class="badge badge-secondary">Session Auth</span>
+                        </div>
+                        <div class="func-body">Ends active Customer shopping session and clears authentication state.</div>
+                        <div class="func-controls">
+                            <button class="btn btn-secondary btn-sm" onclick="menuFlowReset(); switchTab('menuflow');"><i class="fa-solid fa-arrow-right-from-bracket"></i> End Session</button>
+                        </div>
+                        <div id="c_res_14" class="func-result-box"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="view-section">
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <span class="badge badge-accent"><i class="fa-solid fa-bolt"></i> High Performance Computational Engine</span>
+                        <h1>Retail Analytics Platform & Data Structure Hub</h1>
+                        <p>Powering e-commerce operations with String Searching, Suffix Indexing, Spellcheck Autocorrect, Inventory Optimization, and Supply Chain Dynamic Programming.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" onclick="switchTab('co1')"><i class="fa-solid fa-play"></i> Explore CO1 Algorithms</button>
+                            <button class="btn btn-glass" onclick="switchTab('datastore')"><i class="fa-solid fa-boxes-stacked"></i> View Catalog Data</button>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon purple"><i class="fa-solid fa-font"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">CO1 String Algos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon cyan"><i class="fa-solid fa-sitemap"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">CO2 Suffix Structures</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon emerald"><i class="fa-solid fa-calculator"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">CO3 DP Solvers</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon amber"><i class="fa-solid fa-cubes"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="dashProductCount">6</span>
+                                <span class="stat-label">Catalog Products</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module Cards Overview -->
+                <div class="section-header">
+                    <h2>Core Algorithmic Modules</h2>
+                    <p>Select a module to run real-time visual algorithms on the RetailIQ catalog dataset.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- CO1 Card -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-tag tag-co1">CO1</div>
+                            <i class="fa-solid fa-magnifying-glass-chart module-icon"></i>
+                        </div>
+                        <h3>String Searching Algorithms</h3>
+                        <p>Exact pattern matching & sentiment keyword mining across catalog titles and reviews.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>KMP Search:</strong> $O(N+M)$ with LPS table visualization</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Z-Algorithm:</strong> Prefix matching with Z-array box trace</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Rabin-Karp:</strong> Rolling hash verification & collision analysis</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Aho-Corasick:</strong> Trie automaton for multi-keyword extraction</li>
+                        </ul>
+                        <button class="btn btn-outline w-100" onclick="switchTab('co1')">Open CO1 Workbench <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- CO2 Card -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-tag tag-co2">CO2</div>
+                            <i class="fa-solid fa-diagram-project module-icon"></i>
+                        </div>
+                        <h3>Suffix Structures & Indexing</h3>
+                        <p>Subsequence indexing, fast logarithmic search, and repetitive review feedback detection.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Suffix Array:</strong> Lexicographical suffix ranking</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>SA-IS Algorithm:</strong> Linear time $O(N)$ induced sorting</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>LCP (Kasai):</strong> Duplicate phrase & pattern frequency table</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Suffix Tree:</strong> Visual suffix tree hierarchy & path match</li>
+                        </ul>
+                        <button class="btn btn-outline w-100" onclick="switchTab('co2')">Open CO2 Workbench <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- CO3 Card -->
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="module-tag tag-co3">CO3</div>
+                            <i class="fa-solid fa-sliders module-icon"></i>
+                        </div>
+                        <h3>Dynamic Programming Suite</h3>
+                        <p>Typo-tolerant spellchecking, inventory bundle maximization, and cost matrix optimization.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Levenshtein:</strong> Search autocorrect with 2D DP matrix</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Damerau-Levenshtein:</strong> Transposition-aware typo distance</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Weighted Edit:</strong> Customizable insert/delete/substitute costs</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Bitmask DP:</strong> Maximum stock value product bundle under budget</li>
+                            <li><i class="fa-solid fa-check text-success"></i> <strong>Matrix Chain:</strong> Optimal matrix multiplication sequencing</li>
+                        </ul>
+                        <button class="btn btn-outline w-100" onclick="switchTab('co3')">Open CO3 Workbench <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DataStore Catalog View -->
+            <section id="datastore-view" class="view-section">
+                <div class="section-header flex-between">
+                    <div>
+                        <h2>DataStore Explorer</h2>
+                        <p>Manage products and customer reviews powering all algorithm tests.</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-sm" onclick="openAddProductModal()"><i class="fa-solid fa-plus"></i> Add Product</button>
+                        <button class="btn btn-secondary btn-sm" onclick="openAddReviewModal()"><i class="fa-solid fa-plus"></i> Add Review</button>
+                    </div>
+                </div>
+
+                <div class="tab-pills mb-4">
+                    <button class="pill-btn active" data-subtab="products-tab"><i class="fa-solid fa-boxes-stacked"></i> Products (<span id="prodBadge">6</span>)</button>
+                    <button class="pill-btn" data-subtab="reviews-tab"><i class="fa-solid fa-comments"></i> Customer Reviews (<span id="revBadge">6</span>)</button>
+                </div>
+
+                <!-- Products Table -->
+                <div id="products-tab" class="subtab-content active">
+                    <div class="glass-card">
+                        <div class="table-responsive">
+                            <table class="custom-table" id="productsTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Price (₹)</th>
+                                        <th>Stock</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Feed -->
+                <div id="reviews-tab" class="subtab-content">
+                    <div class="reviews-grid" id="reviewsGrid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO1 View -->
+            <section id="co1-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co1">CO1 Module</span>
+                    <h2>String Algorithms</h2>
+                    <p>Exact string matching, pattern searching, and multi-keyword sentiment extraction.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO1SubTab('kmp')"><i class="fa-solid fa-bolt"></i> KMP Search</button>
+                    <button class="subtab-btn" onclick="showCO1SubTab('zalgo')"><i class="fa-solid fa-wand-magic-sparkles"></i> Z-Algorithm</button>
+                    <button class="subtab-btn" onclick="showCO1SubTab('rabinkarp')"><i class="fa-solid fa-hashtag"></i> Rabin-Karp Hash</button>
+                    <button class="subtab-btn" onclick="showCO1SubTab('ahocorasick')"><i class="fa-solid fa-diagram-next"></i> Aho-Corasick Automaton</button>
+                </div>
+
+                <!-- KMP Panel -->
+                <div id="co1-kmp" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-magnifying-glass"></i> KMP Product Search</h3>
+                            <p class="help-text">Knuth-Morris-Pratt constructs a Longest Proper Prefix-Suffix (LPS) array to avoid re-examining characters.</p>
+                            
+                            <div class="form-group">
+                                <label for="kmpPattern">Search Keyword / Pattern:</label>
+                                <input type="text" id="kmpPattern" value="Wireless" class="form-control" placeholder="e.g. Wireless, Bluetooth, Fast">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kmpTarget">Search Target:</label>
+                                <select id="kmpTarget" class="form-control">
+                                    <option value="all_products">All Products (Name & Description)</option>
+                                    <option value="101">Product #101 (Wireless Bluetooth Headphones)</option>
+                                    <option value="102">Product #102 (Gaming Mechanical Keyboard)</option>
+                                    <option value="103">Product #103 (Wireless Gaming Mouse)</option>
+                                    <option value="custom">Custom Text Input</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group hidden" id="kmpCustomTextGroup">
+                                <label for="kmpCustomText">Custom Text:</label>
+                                <textarea id="kmpCustomText" class="form-control" rows="3">Wireless Bluetooth headphones with noise cancellation for wireless audio experience.</textarea>
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runKmpBtn"><i class="fa-solid fa-play"></i> Execute KMP Search</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>KMP Execution Output & LPS Table</h3>
+                                <span class="badge badge-info" id="kmpTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="kmpLpsContainer" class="array-visualizer"></div>
+                            <div id="kmpResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Z-Algorithm Panel -->
+                <div id="co1-zalgo" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Z-Algorithm Visualizer</h3>
+                            <p class="help-text">Computes Z-array for string $S = P + '\$' + T$ where $Z[i]$ is the length of longest common prefix starting at $S[i]$.</p>
+
+                            <div class="form-group">
+                                <label for="zPattern">Search Pattern ($P$):</label>
+                                <input type="text" id="zPattern" value="Gaming" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zText">Target Text ($T$):</label>
+                                <input type="text" id="zText" value="Gaming Mechanical Keyboard with RGB backlight for Gaming enthusiasts" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runZBtn"><i class="fa-solid fa-play"></i> Compute Z-Array & Match</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Z-Array Box Breakdown</h3>
+                                <span class="badge badge-info" id="zTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="zArrayContainer" class="array-visualizer"></div>
+                            <div id="zResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rabin-Karp Panel -->
+                <div id="co1-rabinkarp" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-hashtag"></i> Rabin-Karp Review Search</h3>
+                            <p class="help-text">Uses polynomial rolling hashes ($d=256, q=101$) to find pattern matches across customer feedback reviews.</p>
+
+                            <div class="form-group">
+                                <label for="rkPattern">Review Keyword:</label>
+                                <input type="text" id="rkPattern" value="quality" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rkPrime">Hash Modulo Prime ($q$):</label>
+                                <input type="number" id="rkPrime" value="101" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runRkBtn"><i class="fa-solid fa-play"></i> Run Rabin-Karp Search</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Rolling Hash Trace & Match Report</h3>
+                                <span class="badge badge-info" id="rkTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="rkResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aho-Corasick Panel -->
+                <div id="co1-ahocorasick" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-diagram-next"></i> Aho-Corasick Multi-Pattern Search</h3>
+                            <p class="help-text">Constructs a Trie with BFS failure links to scan reviews for multiple keywords simultaneously in linear time $O(N + M + K)$.</p>
+
+                            <div class="form-group">
+                                <label for="acKeywords">Search Keywords (Comma Separated):</label>
+                                <input type="text" id="acKeywords" value="excellent, battery, noise, RGB, fast, headphones" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runAcBtn"><i class="fa-solid fa-play"></i> Build Automaton & Mine Reviews</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Multi-Keyword Occurrences & Trie Summary</h3>
+                                <span class="badge badge-info" id="acTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="acTreeContainer" class="tree-visualizer mb-3"></div>
+                            <div id="acResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO2 View -->
+            <section id="co2-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co2">CO2 Module</span>
+                    <h2>Suffix Structures & Text Indexing</h2>
+                    <p>Suffix Arrays, SA-IS Linear Construction, Kasai's LCP Array, and Suffix Trees.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO2SubTab('sa')"><i class="fa-solid fa-list-ol"></i> Suffix Array</button>
+                    <button class="subtab-btn" onclick="showCO2SubTab('sais')"><i class="fa-solid fa-gauge-high"></i> SA-IS Algorithm</button>
+                    <button class="subtab-btn" onclick="showCO2SubTab('lcp')"><i class="fa-solid fa-chart-simple"></i> LCP (Kasai)</button>
+                    <button class="subtab-btn" onclick="showCO2SubTab('suffixtree')"><i class="fa-solid fa-tree"></i> Suffix Tree</button>
+                </div>
+
+                <!-- Suffix Array Panel -->
+                <div id="co2-sa" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-list-ol"></i> Suffix Array Construction</h3>
+                            <p class="help-text">Generates all suffixes of text and sorts them lexicographically. Enables $O(P \log N)$ binary substring queries.</p>
+
+                            <div class="form-group">
+                                <label for="saInputText">Input Catalog Text:</label>
+                                <input type="text" id="saInputText" value="bluetooth" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="saSearchQuery">Substring Query (Binary Search):</label>
+                                <input type="text" id="saSearchQuery" value="tooth" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runSaBtn"><i class="fa-solid fa-play"></i> Generate Suffix Array</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Sorted Suffix Table & Binary Search Output</h3>
+                                <span class="badge badge-info" id="saTimeBadge">0.00 ms</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="custom-table table-sm" id="saTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>SA[i] Index</th>
+                                            <th>Suffix String</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div id="saResults" class="output-console mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SA-IS Panel -->
+                <div id="co2-sais" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-gauge-high"></i> SA-IS Linear Time Suffix Array</h3>
+                            <p class="help-text">Suffix Array Induced Sorting (SA-IS) builds SA in $O(N)$ time by classifying suffixes into S-type / L-type and sorting LMS (Locally Minimal Suffixes).</p>
+
+                            <div class="form-group">
+                                <label for="saisInputText">Input Text ($S$):</label>
+                                <input type="text" id="saisInputText" value="cabbage$" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runSaisBtn"><i class="fa-solid fa-play"></i> Run SA-IS Construction</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>SA-IS Character Type Classification & SA Result</h3>
+                                <span class="badge badge-info" id="saisTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="saisTypeContainer" class="type-visualizer mb-3"></div>
+                            <div id="saisResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LCP Panel -->
+                <div id="co2-lcp" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-chart-simple"></i> LCP Array (Kasai's Algorithm)</h3>
+                            <p class="help-text">Calculates Longest Common Prefix values between adjacent sorted suffixes in $O(N)$ time. Used for finding repeating patterns in reviews.</p>
+
+                            <div class="form-group">
+                                <label for="lcpInputText">Review Text Analysis:</label>
+                                <input type="text" id="lcpInputText" value="banana" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runLcpBtn"><i class="fa-solid fa-play"></i> Compute LCP & Find Repeats</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>LCP Table & Longest Repeated Substring</h3>
+                                <span class="badge badge-info" id="lcpTimeBadge">0.00 ms</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="custom-table table-sm" id="lcpTable">
+                                    <thead>
+                                        <tr>
+                                            <th>i</th>
+                                            <th>SA[i]</th>
+                                            <th>LCP[i]</th>
+                                            <th>Suffix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div id="lcpResults" class="output-console mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suffix Tree Panel -->
+                <div id="co2-suffixtree" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-tree"></i> Suffix Tree Visualizer</h3>
+                            <p class="help-text">Compacted Trie of all suffixes of text $T$. Allows fast linear substring checks, distinct substring counts, and pattern matching.</p>
+
+                            <div class="form-group">
+                                <label for="stInputText">Input Text ($T$):</label>
+                                <input type="text" id="stInputText" value="retail$" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runStBtn"><i class="fa-solid fa-play"></i> Build & Render Suffix Tree</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Interactive Tree Hierarchy</h3>
+                                <span class="badge badge-info" id="stTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="stVisualizer" class="tree-visualizer"></div>
+                            <div id="stResults" class="output-console mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO3 View -->
+            <section id="co3-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co3">CO3 Module</span>
+                    <h2>Dynamic Programming Suite</h2>
+                    <p>Typo-tolerant distance functions, optimal inventory bundling, and supply chain matrix optimization.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO3SubTab('lev')"><i class="fa-solid fa-spell-check"></i> Levenshtein Distance</button>
+                    <button class="subtab-btn" onclick="showCO3SubTab('damerau')"><i class="fa-solid fa-repeat"></i> Damerau-Levenshtein</button>
+                    <button class="subtab-btn" onclick="showCO3SubTab('weighted')"><i class="fa-solid fa-sliders"></i> Weighted Edit</button>
+                    <button class="subtab-btn" onclick="showCO3SubTab('bitmask')"><i class="fa-solid fa-layer-group"></i> Bitmask Product Selection</button>
+                    <button class="subtab-btn" onclick="showCO3SubTab('mcm')"><i class="fa-solid fa-cubes"></i> Matrix Chain Multiplication</button>
+                </div>
+
+                <!-- Levenshtein Panel -->
+                <div id="co3-lev" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-spell-check"></i> Levenshtein Distance Autocorrect</h3>
+                            <p class="help-text">Calculates minimum insertion, deletion, and substitution operations to transform String A to String B.</p>
+
+                            <div class="form-group">
+                                <label for="levStr1">User Search Query (with typo):</label>
+                                <input type="text" id="levStr1" value="headfon" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="levStr2">Catalog Product Target:</label>
+                                <input type="text" id="levStr2" value="Headphones" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runLevBtn"><i class="fa-solid fa-play"></i> Compute DP Matrix</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>2D Dynamic Programming Matrix Grid</h3>
+                                <span class="badge badge-info" id="levTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="levDpGrid" class="dp-grid-container mb-3"></div>
+                            <div id="levResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Damerau-Levenshtein Panel -->
+                <div id="co3-damerau" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-repeat"></i> Damerau-Levenshtein (Transpositions)</h3>
+                            <p class="help-text">Extends Levenshtein distance by allowing adjacent character transpositions (swaps), e.g., "keybaord" $\rightarrow$ "keyboard".</p>
+
+                            <div class="form-group">
+                                <label for="damStr1">Input Word 1:</label>
+                                <input type="text" id="damStr1" value="keybaord" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="damStr2">Input Word 2:</label>
+                                <input type="text" id="damStr2" value="keyboard" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runDamBtn"><i class="fa-solid fa-play"></i> Compute Distance</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Transposition Matrix & Path Breakdown</h3>
+                                <span class="badge badge-info" id="damTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="damDpGrid" class="dp-grid-container mb-3"></div>
+                            <div id="damResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weighted Edit Distance Panel -->
+                <div id="co3-weighted" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-sliders"></i> Weighted Edit Distance</h3>
+                            <p class="help-text">Assign custom weights for Insertion ($W_i$), Deletion ($W_d$), and Substitution ($W_s$).</p>
+
+                            <div class="form-group">
+                                <label for="wedStr1">String A:</label>
+                                <input type="text" id="wedStr1" value="mouse" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="wedStr2">String B:</label>
+                                <input type="text" id="wedStr2" value="house" class="form-control">
+                            </div>
+
+                            <div class="weights-grid">
+                                <div class="form-group">
+                                    <label for="weightInsert">Insertion Weight ($W_i$):</label>
+                                    <input type="number" id="weightInsert" value="1" min="1" max="10" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weightDelete">Deletion Weight ($W_d$):</label>
+                                    <input type="number" id="weightDelete" value="1" min="1" max="10" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weightSubstitute">Substitute Weight ($W_s$):</label>
+                                    <input type="number" id="weightSubstitute" value="2" min="1" max="10" class="form-control">
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runWedBtn"><i class="fa-solid fa-play"></i> Compute Weighted Distance</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Weighted DP Matrix Grid</h3>
+                                <span class="badge badge-info" id="wedTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="wedDpGrid" class="dp-grid-container mb-3"></div>
+                            <div id="wedResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bitmask DP Panel -->
+                <div id="co3-bitmask" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-layer-group"></i> Bitmask Product Bundle Selection</h3>
+                            <p class="help-text">Evaluates all $2^N$ catalog product subsets using bitwise mask representation to find the optimal bundle within budget that maximizes total inventory stock value.</p>
+
+                            <div class="form-group">
+                                <label for="bitmaskBudget">Available Budget (₹):</label>
+                                <input type="number" id="bitmaskBudget" value="5000" class="form-control">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runBitmaskBtn"><i class="fa-solid fa-play"></i> Run Bitmask DP Optimization</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Optimal Product Bundle & Value Breakdown</h3>
+                                <span class="badge badge-info" id="bitmaskTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="bitmaskSelectedCards" class="bundle-grid mb-3"></div>
+                            <div id="bitmaskResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matrix Chain Multiplication Panel -->
+                <div id="co3-mcm" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-cubes"></i> Matrix Chain Multiplication</h3>
+                            <p class="help-text">Computes minimum scalar multiplication operations required to multiply a chain of supply chain transition matrices.</p>
+
+                            <div class="form-group">
+                                <label for="mcmDimensions">Matrix Dimensions Sequence (comma separated):</label>
+                                <input type="text" id="mcmDimensions" value="10, 30, 5, 60" class="form-control" placeholder="e.g. 10, 30, 5, 60 for matrices A(10x30), B(30x5), C(5x60)">
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="runMcmBtn"><i class="fa-solid fa-play"></i> Run MCM Dynamic Programming</button>
+                        </div>
+
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>DP Cost Matrix $m[i,j]$ & Parenthesization</h3>
+                                <span class="badge badge-info" id="mcmTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="mcmDpGrid" class="dp-grid-container mb-3"></div>
+                            <div id="mcmResults" class="output-console"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO4 View: Graph & Network Flows -->
+            <section id="co4-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co4">CO4 Module</span>
+                    <h2>Graph & Network Flows</h2>
+                    <p>Logistics supply chain maximum flow, minimum cut bottleneck analysis, and bipartite order matching.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO4SubTab('dinic')"><i class="fa-solid fa-water"></i> Dinic Max Flow</button>
+                    <button class="subtab-btn" onclick="showCO4SubTab('mincut')"><i class="fa-solid fa-scissors"></i> Minimum Cut Bottlenecks</button>
+                    <button class="subtab-btn" onclick="showCO4SubTab('bipartite')"><i class="fa-solid fa-arrows-split-up-and-left"></i> Bipartite Order Matching</button>
+                </div>
+
+                <!-- Dinic Panel -->
+                <div id="co4-dinic" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-water"></i> Dinic's Algorithm & Edmonds-Karp</h3>
+                            <p class="help-text">Computes maximum inventory throughput from Central Warehouses (Source) through Regional Hubs to Stores (Sink).</p>
+                            <div class="form-group">
+                                <label>Logistics Graph Topology:</label>
+                                <div class="form-control" style="font-family: var(--font-mono); font-size: 0.8rem; background: #000;">
+                                    0: Central Depot -> Hubs [1, 2] (300, 250 units)<br>
+                                    1: Hub North -> Stores [3, 4] (150, 180 units)<br>
+                                    2: Hub South -> Stores [3, 4] (100, 160 units)<br>
+                                    3, 4: Stores -> 5: Fulfillment Center (220, 310 units)
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" onclick="runWebDinic()"><i class="fa-solid fa-play"></i> Run Dinic Max Flow</button>
+                                <button class="btn btn-secondary" onclick="runWebEdmondsKarp()"><i class="fa-solid fa-play"></i> Run Edmonds-Karp</button>
+                            </div>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Flow Routing Matrix & Augmentations</h3>
+                                <span class="badge badge-info" id="flowTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="flowResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MinCut Panel -->
+                <div id="co4-mincut" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-scissors"></i> Max-Flow Min-Cut Theorem</h3>
+                            <p class="help-text">Isolates saturated bottleneck shipping lanes between reachable source partition S and sink partition T.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebMinCut()"><i class="fa-solid fa-play"></i> Identify Supply Bottlenecks</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Critical Bottlenecks & Capacity Chokepoints</h3>
+                                <span class="badge badge-info" id="minCutTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="minCutResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bipartite Panel -->
+                <div id="co4-bipartite" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-arrows-split-up-and-left"></i> Order-to-Resource Assignment</h3>
+                            <p class="help-text">Matches 5 pending orders to 5 qualified delivery fulfillment vehicles using augmenting path bipartite matching.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebBipartite()"><i class="fa-solid fa-play"></i> Assign Orders to Resources</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Optimal Dispatch Matching Results</h3>
+                                <span class="badge badge-info" id="bipartiteTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="bipartiteResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO5 View: Complexity & NP-Hard -->
+            <section id="co5-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co5">CO5 Module</span>
+                    <h2>Complexity, Reductions & NP-Hard Solvers</h2>
+                    <p>0/1 Knapsack promotion budgeting, Vertex Cover conflict elimination, and Traveling Salesperson delivery routing.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO5SubTab('knapsack')"><i class="fa-solid fa-sack-dollar"></i> Knapsack Promotions</button>
+                    <button class="subtab-btn" onclick="showCO5SubTab('conflict')"><i class="fa-solid fa-shield-halved"></i> Conflict Analysis (MIS / MVC)</button>
+                    <button class="subtab-btn" onclick="showCO5SubTab('tsp')"><i class="fa-solid fa-route"></i> Delivery Route TSP</button>
+                    <button class="subtab-btn" onclick="showCO5SubTab('sat')"><i class="fa-solid fa-microchip"></i> 3-SAT Solver</button>
+                </div>
+
+                <!-- Knapsack Panel -->
+                <div id="co5-knapsack" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-sack-dollar"></i> 0/1 Knapsack Promotion Optimizer</h3>
+                            <p class="help-text">Selects marketing packages to maximize total customer reach and revenue lift under an advertising budget constraint.</p>
+                            <div class="form-group">
+                                <label for="knapsackBudget">Campaign Budget (₹):</label>
+                                <input type="number" id="knapsackBudget" value="30000" class="form-control" step="5000">
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="runWebKnapsack()"><i class="fa-solid fa-play"></i> Optimize Marketing Portfolio</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Optimal Promotional Portfolio Output</h3>
+                                <span class="badge badge-info" id="knapsackTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="knapsackResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conflict Panel -->
+                <div id="co5-conflict" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-shield-halved"></i> Maximum Independent Set & Minimum Vertex Cover</h3>
+                            <p class="help-text">Finds the maximum compatible promotion set without coupon rule collisions, and the minimum campaigns to retire.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebConflict()"><i class="fa-solid fa-play"></i> Analyze Promotion Conflicts</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Independent Set vs Vertex Cover Breakdown</h3>
+                                <span class="badge badge-info" id="conflictTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="conflictResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TSP Panel -->
+                <div id="co5-tsp" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-route"></i> Delivery TSP: Exact vs Approximation</h3>
+                            <p class="help-text">Compares exact Held-Karp $O(N^2 2^N)$ Bitmask DP vs greedy Nearest Neighbor 2-Approximation for 6 logistics hubs.</p>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" onclick="runWebTSP('exact')"><i class="fa-solid fa-play"></i> Exact Bitmask DP</button>
+                                <button class="btn btn-secondary" onclick="runWebTSP('approx')"><i class="fa-solid fa-play"></i> Nearest Neighbor</button>
+                                <button class="btn btn-glass" onclick="runWebTSP('compare')"><i class="fa-solid fa-scale-balanced"></i> Compare Both</button>
+                            </div>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Tour Sequence & Distance Breakdown</h3>
+                                <span class="badge badge-info" id="tspTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="tspResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3-SAT Panel -->
+                <div id="co5-sat" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-microchip"></i> 3-SAT Retail Contract Solver</h3>
+                            <p class="help-text">DPLL backtracking solver checking mutual satisfiability of supplier pricing and bundle constraints.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebSAT()"><i class="fa-solid fa-play"></i> Solve 3-SAT Clauses</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>DPLL Satisfiability Verdict</h3>
+                                <span class="badge badge-info" id="satTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="satResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO6 View: Randomized & Parallel -->
+            <section id="co6-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge tag-co6">CO6 Module</span>
+                    <h2>Randomized & Parallel Algorithms</h2>
+                    <p>Parallel sales reduction, Randomized QuickSort, Reservoir review sampling, 2-Universal hashing, and Brent's theorem scaling.</p>
+                </div>
+
+                <div class="subnav-tabs">
+                    <button class="subtab-btn active" onclick="showCO6SubTab('reduce')"><i class="fa-solid fa-chart-line"></i> Parallel Reduce Sales</button>
+                    <button class="subtab-btn" onclick="showCO6SubTab('sort')"><i class="fa-solid fa-arrow-down-short-wide"></i> Randomized QuickSort</button>
+                    <button class="subtab-btn" onclick="showCO6SubTab('reservoir')"><i class="fa-solid fa-dice"></i> Reservoir Sampling</button>
+                    <button class="subtab-btn" onclick="showCO6SubTab('hashing')"><i class="fa-solid fa-barcode"></i> 2-Universal Hashing</button>
+                    <button class="subtab-btn" onclick="showCO6SubTab('brent')"><i class="fa-solid fa-stopwatch"></i> Work / Span / Brent's Law</button>
+                </div>
+
+                <!-- Reduce Panel -->
+                <div id="co6-reduce" class="algo-panel active">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-chart-line"></i> Parallel Sales Aggregation</h3>
+                            <p class="help-text">Divide-and-conquer parallel tree reduction for gross revenue, total units, and average basket size.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebParallelReduce()"><i class="fa-solid fa-play"></i> Run Parallel Reduce</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Parallel Sales Reduction Output</h3>
+                                <span class="badge badge-info" id="reduceTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="reduceResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort Panel -->
+                <div id="co6-sort" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-arrow-down-short-wide"></i> Randomized QuickSort & Parallel Sort</h3>
+                            <p class="help-text">Randomized pivot selection avoids worst-case O(N^2) running time; Parallel MergeSort splits across threads.</p>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" onclick="runWebQuickSort()"><i class="fa-solid fa-play"></i> Randomized QuickSort</button>
+                                <button class="btn btn-secondary" onclick="runWebParallelMergeSort()"><i class="fa-solid fa-play"></i> Parallel MergeSort</button>
+                            </div>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Sorted Historical Sales Transactions</h3>
+                                <span class="badge badge-info" id="sortTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="sortResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservoir Panel -->
+                <div id="co6-reservoir" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-dice"></i> Reservoir Sampling (Algorithm R)</h3>
+                            <p class="help-text">Uniformly samples k reviews from a continuous feedback stream in a single pass O(N) time and O(k) memory.</p>
+                            <div class="form-group">
+                                <label for="reservoirK">Sample Size (k):</label>
+                                <input type="number" id="reservoirK" value="3" class="form-control" min="1" max="13">
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="runWebReservoir()"><i class="fa-solid fa-play"></i> Sample Reviews</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Sampled Reviews Feed</h3>
+                                <span class="badge badge-info" id="reservoirTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="reservoirResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hashing Panel -->
+                <div id="co6-hashing" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-barcode"></i> 2-Universal Hashing vs Naive Modulo</h3>
+                            <p class="help-text">Hash function h_{a,b}(x) = ((a * x + b) mod p) mod m guarantees collision probability &le; 1/m.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebUniversalHash()"><i class="fa-solid fa-play"></i> Evaluate Barcode Hashing</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Bucket Distribution & Collision Analysis</h3>
+                                <span class="badge badge-info" id="hashTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="hashResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brent Panel -->
+                <div id="co6-brent" class="algo-panel">
+                    <div class="panel-grid">
+                        <div class="controls-card glass-card">
+                            <h3><i class="fa-solid fa-stopwatch"></i> Work, Span & Brent's Law</h3>
+                            <p class="help-text">Analyzes theoretical speedup T_p &le; (T_1 - T_infinity)/p + T_infinity across 1 to 64 CPU cores.</p>
+                            <button class="btn btn-primary w-100" onclick="runWebBrentAnalysis()"><i class="fa-solid fa-play"></i> Calculate Scaling Curve</button>
+                        </div>
+                        <div class="results-card glass-card">
+                            <div class="card-header flex-between">
+                                <h3>Parallel Scaling Curve</h3>
+                                <span class="badge badge-info" id="brentTimeBadge">0.00 ms</span>
+                            </div>
+                            <div id="brentResults" class="result-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Algorithm Lab View: 16 Syllabus Demonstrations -->
+            <section id="alglab-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge badge-accent">Manager Syllabus Lab</span>
+                    <h2>Algorithm Lab (16 Advanced Demonstrations)</h2>
+                    <p>Dedicated educational suite containing all specialized topics from CO3 to CO6.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="module-card">
+                        <h3>1. Sequence Alignment</h3>
+                        <p>Needleman-Wunsch global alignment on SKU codes.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(1)">Run Alignment Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>2. Matrix Chain Multiplication</h3>
+                        <p>Optimal parenthesization for matrix dimensions.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(2)">Run MCM Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>3. Optimal Product Lookup Tree</h3>
+                        <p>Optimal BST minimizing search frequency cost.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(3)">Run OBST Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>4. Tree-Based Category Analysis</h3>
+                        <p>Tree DP & Rerooting centroid on category taxonomy.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(4)">Run Tree DP Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>5. Category Subset Analysis</h3>
+                        <p>SOS DP (Sum Over Subsets) in O(N * 2^N).</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(5)">Run SOS DP Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>6. Small Graph Optimization</h3>
+                        <p>Hamiltonian Path Bitmask DP for store audit tours.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(6)">Run Hamiltonian Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>7. Set-Cover Promotion Planning</h3>
+                        <p>Bitmask DP for minimum-cost demographic coverage.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(7)">Run Set Cover Demo</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>8. Network Flow Comparison</h3>
+                        <p>Ford-Fulkerson vs Edmonds-Karp vs Dinic.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(8)">Run Flow Comparison</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>9. Retail Constraint Solver</h3>
+                        <p>3-SAT DPLL solver on retail supplier rules.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(9)">Run 3-SAT Solver</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>10. Graph Conflict Analysis</h3>
+                        <p>CLIQUE / Independent Set / Vertex Cover reductions.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(10)">Run Conflict Reductions</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>11. Delivery Optimization</h3>
+                        <p>Exact Held-Karp TSP vs 2-Approximation.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(11)">Run TSP Comparison</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>12. Product-Code Hashing</h3>
+                        <p>2-Universal Hash family on barcode keys.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(12)">Run Universal Hashing</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>13. Large-Integer Primality Test</h3>
+                        <p>Miller-Rabin probabilistic test for transaction security.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(13)">Run Miller-Rabin Test</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>14. Parallel Sales Aggregation</h3>
+                        <p>Parallel divide-and-conquer tree reduction.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(14)">Run Parallel Reduce</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>15. Cumulative Sales Analysis</h3>
+                        <p>Blelloch parallel scan in work O(N), span O(log N).</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(15)">Run Parallel Scan</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>16. Parallel Performance Analysis</h3>
+                        <p>Work, Span, and Brent's Theorem scaling bounds.</p>
+                        <button class="btn btn-outline btn-sm w-100" onclick="runLabDemo(16)">Run Brent's Law Analysis</button>
+                    </div>
+                </div>
+
+                <div class="glass-card mt-3">
+                    <div class="card-header flex-between">
+                        <h3><i class="fa-solid fa-terminal"></i> Algorithm Lab Live Output Console</h3>
+                        <span class="badge badge-info" id="labTimeBadge">0.00 ms</span>
+                    </div>
+                    <div id="labConsoleResults" class="result-box">Click any demo above to view real-time algorithm execution and theoretical complexity breakdown.</div>
+                </div>
+            </section>
+
+            <!-- Benchmark View -->
+            <section id="benchmark-view" class="view-section">
+                <div class="section-header">
+                    <span class="badge badge-accent">Performance Suite</span>
+                    <h2>Algorithm Benchmarking & Complexity Reference</h2>
+                    <p>Compare real-time runtime benchmarks across all 13 algorithms in RetailIQ.</p>
+                </div>
+
+                <div class="glass-card mb-4">
+                    <div class="card-header flex-between">
+                        <h3><i class="fa-solid fa-gauge-high"></i> Suite Performance Test</h3>
+                        <button class="btn btn-primary btn-sm" id="runBenchmarkSuiteBtn"><i class="fa-solid fa-play"></i> Execute Full Suite Benchmark</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="custom-table" id="benchmarkTable">
+                            <thead>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <th>Category</th>
+                                    <th>Time Complexity</th>
+                                    <th>Space Complexity</th>
+                                    <th>Measured Time (ms)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-dialog glass-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-box"></i> Add New Product</h3>
+                <button class="close-btn" onclick="closeModal('addProductModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="newProdName">Product Name:</label>
+                        <input type="text" id="newProdName" class="form-control" required placeholder="e.g. Ergonomic Office Chair">
+                    </div>
+                    <div class="form-group">
+                        <label for="newProdCategory">Category:</label>
+                        <input type="text" id="newProdCategory" class="form-control" required placeholder="e.g. Furniture">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="newProdPrice">Price (₹):</label>
+                            <input type="number" id="newProdPrice" class="form-control" step="0.01" required placeholder="4999.00">
+                        </div>
+                        <div class="form-group col">
+                            <label for="newProdStock">Stock Count:</label>
+                            <input type="number" id="newProdStock" class="form-control" required placeholder="25">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newProdDesc">Description:</label>
+                        <textarea id="newProdDesc" class="form-control" rows="3" required placeholder="High quality ergonomic chair..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-check"></i> Save Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Review Modal -->
+    <div class="modal" id="addReviewModal">
+        <div class="modal-dialog glass-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-star"></i> Add Customer Review</h3>
+                <button class="close-btn" onclick="closeModal('addReviewModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addReviewForm">
+                    <div class="form-group">
+                        <label for="newRevProduct">Associated Product:</label>
+                        <select id="newRevProduct" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newRevAuthor">Customer Name:</label>
+                        <input type="text" id="newRevAuthor" class="form-control" required placeholder="e.g. Vikram">
+                    </div>
+                    <div class="form-group">
+                        <label for="newRevRating">Rating (1 to 5):</label>
+                        <input type="number" id="newRevRating" class="form-control" min="1" max="5" value="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newRevContent">Review Comment:</label>
+                        <textarea id="newRevContent" class="form-control" rows="3" required placeholder="Great build quality and super fast shipping!"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-check"></i> Save Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

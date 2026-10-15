@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "RetailQ/retailiq.main.Main",
+            "projectName": "RetailQ"
+        },
+        {
+            "type": "java",
+            "name": "Run RetailIQ (Interactive Console)",
+            "request": "launch",
+            "mainClass": "retailiq.main.Main",
+            "projectName": "RetailQ",
+            "console": "integratedTerminal"
+        }
+    ]
+}

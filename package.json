@@ -1,0 +1,14 @@
+{
+  "name": "retailq-project",
+  "version": "1.0.0",
+  "description": "RetailIQ - Advanced Retail Analytics & Algorithm Engine",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
